@@ -1,8 +1,52 @@
 # login-demo
 
-> A Vue.js project
+> Vue + Express + MongoDB
 
-## Build Setup
+> support sign in and register
+
+## Setup
+```bash
+# init vue project
+npm i -g vue-cli
+vue init webpack login-demo
+
+# run vue project
+cd login-demo
+npm run dev
+
+# install express
+npm install express -save
+
+# install MongoDB
+npm install mongoose -save
+brew install mongodb --with-openssl
+
+# start mongo data
+cd ~
+mkdir mongo-data
+mongod --dbpath ~/mongo-data
+
+# run server
+cd server
+node index
+
+```
+
+## cross-domain
+
+```
+proxyTable: {
+      '/api': {
+        target: 'http://localhost:8089/api/',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+```
+
+## Vue Build Setup
 
 ``` bash
 # install dependencies
